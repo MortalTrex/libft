@@ -47,7 +47,7 @@ BONUS = ft_lstnew_bonus.c	\
 	ft_lstiter_bonus.c		\
 	ft_lstmap_bonus.c
 
-CC=cc
+CC=clang
 
 CCFLAGS=-Wall -Werror -Wextra
 
@@ -77,6 +77,10 @@ fclean: clean
 	@echo "\033[0;32mArchive file ${NAME} has been deleted\033[0m"
 
 re: fclean all
+
+so:
+	$(CC) -nostartfiles -fPIC $(CCFLAGS) $(SRCS)
+	gcc -nostartfiles -shared -o libft.so $(OBJS)
 
 .PHONY:
 	clean all fclean re bonus title

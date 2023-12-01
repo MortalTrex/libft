@@ -4,37 +4,41 @@
 
 char *ft_strjoin(char const *s1, char const *s2)
 {
-  unsigned char *str = (unsigned char *)s1;
-  unsigned char *str1 = (unsigned char *)s2;
   int len;
   
   len = strlen(s1) + strlen(s2);
-  char *res = (char *) malloc (len);
-  int i;
+  char *res; 
 
-  int y; 
+  res = (char *) malloc(sizeof(char) * (len + 1));
+  
+  if (!res)
+    return(NULL);
+
+  int i;
+  int j;
 
   i = 0;
-  y = 0;
-  while (str[i])
+  j = 0;
+  while (s1[i])
   {
-    res[i] = str[i];
+    res[i] = s1[i];
     i++;
   } 
   while (i < len)
   {
-    res[i] = str1[y];
+    res[i] = s2[j];
     i++;
-    y++;
+    j++;
   }
+  res[i] = '\0';
   return(res);
 }
 
 /*
 int main()
 {
-  char tab[] = "Test";
-  char tab2[] = "Salut";
+  char tab[] = "";
+  char tab2[] = "42";
   printf("%s", ft_strjoin(tab, tab2));
 }
 */

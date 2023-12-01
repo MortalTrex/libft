@@ -2,24 +2,27 @@
 
 char *ft_strrchr(const char *s, int c)
 {
-  size_t i = 0; 
+  size_t i; 
 
-  if (c == 0)
-      return (char *)s;
-
-  while (s[i]) {
-      if (s[i] == c)
-          return (char *)&s[i];
-      i++;
-    }
-    return(0);
+  i = strlen(s); 
+  if (s == NULL)
+      return (NULL);
+  while (i > 0) 
+  {
+    if (s[i] == c)
+      return (char *)&s[i];
+    i--;
+  }
+  if (s[i] == (char)c)
+    return((char *)&s[i]);
+  return(NULL);
 }
 
 /*
 #include <stdio.h>
 int main()
 {
-  printf("Vraie fonction : %s\n", strrchr("woah", 'h'));
-  printf("Ma fonction : %s\n", ft_strrchr("woah", 'h'));
+  printf("Vraie fonction : %p\n", strrchr("tripouille", 't'));
+  printf("Ma fonction : %p\n", ft_strrchr("tripouille", 't'));
 }
 */

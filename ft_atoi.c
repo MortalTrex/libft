@@ -12,28 +12,32 @@
 
 int	ft_atoi(const char *str)
 {
-	int	res;
+	long int	res;
 	int	i;
 	int	sign;
 
 	res = 0;
 	i = 0;
 	sign = 1;
-	while(str[i] >= ' ' && str[i] <= ' ')
-	{
-		i++;
-	}
-	if (str[0] == '-')
-	{
-		sign = -1;
-		i++;
-	}
+  while(str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
+    i++;
+  while(str[i] == '+' || str[i] == '-')
+  {
+    if(str[i] == '-')
+      sign = -1;
+    else if(str[i] == '+')
+        sign = 1;
+    if (str[i + 1] == '+' || str[i + 1] == '-')
+      return(0);
+    i++;
+  }
 	while (str[i] >= '0' && str[i] <= '9')
 	{
-		res = res * 10 + (str[i] - '0');
+		res = res + (str[i] - '0');
+    res *= 10;
 		i++;
 	}
-	return (res * sign);
+	return ((res * sign) / 10);
 }
 
 /*
@@ -41,7 +45,8 @@ int	ft_atoi(const char *str)
 #include <stdio.h>
 int main()
 {
-	printf("ma fonction : %d\n", ft_atoi("   234"));
-	printf("le vrai atoi : %d\n", atoi("   234"));
+  char escape[] = {9, 10, 11, 12, 13, 0};
+	printf("ma fonction : %d\n", ft_atoi(escape + 1));
+	printf("le vrai atoi : %d\n", atoi(escape + 1));
 }
 */

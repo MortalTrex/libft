@@ -24,13 +24,12 @@ size_t ft_strlcat(char * dst, const char * src, size_t dstsize)
     return(i);
 }
 
-/*
 #include <stdio.h>
 int main()
 {
-  char dst[20] = "Hello";
-  const char* src = "world";
+  char dst[30]; memset(dst, 0, 30);
+	char * src = (char *)"AAAAAAAAA";
+	dst[0] = 'B';
   //printf("Vraie fonction : %lu\n", strlcat(dst, src, sizeof(dst))); 
-  printf("Ma fonction : %lu\n", ft_strlcat(dst, src, sizeof(dst)));
+  printf("Ma fonction : %lu\n", ft_strlcat(dst, src, 0));  
 }
-*/

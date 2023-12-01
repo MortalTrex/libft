@@ -4,7 +4,7 @@
 char *ft_strtrim(char const *s1, char const *set)
 {
   char  *res;
-  res = (char *) malloc (sizeof(char) * 5);
+  res = (char *) malloc (sizeof(char) * strlen(s1));
   if (res == NULL)
     return(NULL);
   int i;
@@ -24,10 +24,8 @@ char *ft_strtrim(char const *s1, char const *set)
   return(res);
 }
 
-/*
 #include "stdio.h"
 int main()
 {
   printf("%s", ft_strtrim("  Salut  ", " "));
 }
-*/

@@ -4,26 +4,16 @@
 
 void *ft_calloc(size_t count, size_t size)
 {
-  //int i;
   void *str;
-  /*
-  if (count == 0 || size == 0)
-  {
-    count = 1;
-    size = 1;
-  }
-  */
-  str = malloc(count * size);
+  
+  if ((int) count < 0 && (int) size < 0)
+    return(NULL);
+  if((int)(count * size) < 0)
+    return(NULL);
+  str = malloc((sizeof (char)) * (count * size));
   if (!str)
     return(NULL);
-  /*
-  i = 0;
-  while(i < size)
-  {
-    str[i] = 0;
-    i++;
-  }
-  */   
+  
   bzero(str, count * size);
   return(str);
 }
@@ -32,7 +22,7 @@ void *ft_calloc(size_t count, size_t size)
 #include <stdio.h>
 int main()
 {
-  int *tab = (int *) ft_calloc (3, -5);
+  int *tab = (int *) ft_calloc (0, 5);
   int i;
 
   for(i = 0; i < 3; i++)

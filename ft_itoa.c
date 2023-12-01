@@ -28,7 +28,7 @@ char *ft_itoa(int n)
   int last_nb;
     
   i = ft_count(n);
-  res = (char *) malloc (sizeof(char) * i);
+  res = calloc (sizeof(char), i + 1);
   if (res == NULL)
     return(NULL);
   last_nb = n;
