@@ -2,15 +2,14 @@
 
 void *ft_memchr(const void *s, int c, size_t n)
 {
-  unsigned int i;
-  unsigned int tofind = c;
+  int i;
   unsigned char *str = (unsigned char *)s; 
   
   i = 0;
-  while(str[i] < n)
+  while(i < n)
   {
-    if (str[i] == tofind)
-     return(str);
+    if (str[i] == (char)c)
+     return(&str[i]);
     i++;
   }
   return(0);
@@ -18,7 +17,6 @@ void *ft_memchr(const void *s, int c, size_t n)
 
 /*
 #include <stdlib.h>
-#include <string.h>
 #include <stdio.h>
 int main()
 {
@@ -38,4 +36,3 @@ int main()
     printf( "La valeur à la position calculée est %d\n", *((char *) found1) );
 }
 */
-

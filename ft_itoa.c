@@ -3,20 +3,22 @@
 
 int ft_count(int n)
 {
-  int res;
+  long n1;
+  long res;
 
   res = 0;
-  if (n < 0)
+  n1 = n;
+  if (n1 < 0)
   {
-    n = n * -1;
+    n1 = n1 * -1;
     res++;
   }
-  if (n == 0)
+  if (n1 == 0)
     res = 1;
-  while (n > 0)
+  while (n1 > 0)
   {
       res++;
-      n = n / 10;
+      n1 = n1 / 10;
   }
   return(res);
 }
@@ -25,10 +27,10 @@ char *ft_itoa(int n)
 {
   int i;
   char *res;
-  int last_nb;
+  long last_nb;
     
   i = ft_count(n);
-  res = calloc (sizeof(char), i + 1);
+  res = malloc (sizeof(char) * i + 1);
   if (res == NULL)
     return(NULL);
   last_nb = n;
@@ -49,7 +51,7 @@ char *ft_itoa(int n)
 /*
 int main()
 {
-  int n = 0;
+  int n = 456;
   char *res = ft_itoa(n);
   printf("%s", res);
   free(res);

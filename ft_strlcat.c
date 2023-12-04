@@ -24,6 +24,7 @@ size_t ft_strlcat(char * dst, const char * src, size_t dstsize)
     return(i);
 }
 
+/*
 #include <stdio.h>
 int main()
 {
@@ -33,3 +34,4 @@ int main()
   //printf("Vraie fonction : %lu\n", strlcat(dst, src, sizeof(dst))); 
   printf("Ma fonction : %lu\n", ft_strlcat(dst, src, 0));  
 }
+*/

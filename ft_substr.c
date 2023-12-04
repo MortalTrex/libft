@@ -1,14 +1,24 @@
 #include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+
 char *ft_substr(char const *s, unsigned int start, size_t len)
 {
+  if (!s)
+    return(NULL);
+  size_t lenmod = 0; 
+  if (start > len)
+    lenmod = 0;
+  else if (start <= len)
+    lenmod = strlen(s) - start;
   char *res;
-  res = (char *) malloc(sizeof(char)* len + 1);
-  if (res == NULL)
+  res = (char *) malloc(sizeof(char) * (lenmod + 1));
+  if (!res)
     return(NULL);
   size_t i;
 
   i = 0;
-  while(i < len)
+  while(i < lenmod)
   {
     res[i] = s[start];
     i++;
@@ -19,10 +29,8 @@ char *ft_substr(char const *s, unsigned int start, size_t len)
 }
 
 /*
-#include <stdio.h>
 int main()
 {
-  const char *s = "Salut";
-  printf("%s", ft_substr(s, 1, 2));
-} 
+  printf("%s", ft_substr("tripouille", 1, 1));
+}
 */

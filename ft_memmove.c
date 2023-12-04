@@ -7,6 +7,14 @@ void *ft_memmove(void *dest, const void *src, size_t n)
   unsigned int i;
 
   i = 0;
+  if (dest > src)
+  {
+    while (n > 0)
+    {
+      n--;
+      destres[n] = srcres[n];
+    }
+  }
   while (i < n)
   {
     destres[i] = srcres[i];
