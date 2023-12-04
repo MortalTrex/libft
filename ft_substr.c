@@ -6,19 +6,18 @@ char *ft_substr(char const *s, unsigned int start, size_t len)
 {
   if (!s)
     return(NULL);
-  size_t lenmod = 0; 
   if (start > len)
-    lenmod = 0;
-  else if (start <= len)
-    lenmod = strlen(s) - start;
+    len = 0;
+  if (len > strlen(s))
+    len = strlen(s);
   char *res;
-  res = (char *) malloc(sizeof(char) * (lenmod + 1));
+  res = (char *) malloc(sizeof(char) * (len + 1));
   if (!res)
     return(NULL);
   size_t i;
 
   i = 0;
-  while(i < lenmod)
+  while(i < len)
   {
     res[i] = s[start];
     i++;
@@ -31,6 +30,6 @@ char *ft_substr(char const *s, unsigned int start, size_t len)
 /*
 int main()
 {
-  printf("%s", ft_substr("tripouille", 1, 1));
+  printf("%s", ft_substr("BONJOUR LES HARICOTS !", 8, 14));
 }
 */
