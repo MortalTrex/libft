@@ -37,15 +37,15 @@ SRCS = ft_atoi.c		\
 	ft_striteri.c 		\
 	ft_strtrim.c
 
-BONUS = ft_lstnew_bonus.c	\
-	ft_lstadd_front_bonus.c	\
-	ft_lstsize_bonus.c		\
-	ft_lstlast_bonus.c		\
-	ft_lstadd_back_bonus.c	\
-	ft_lstdelone_bonus.c	\
-	ft_lstclear_bonus.c		\
-	ft_lstiter_bonus.c		\
-	ft_lstmap_bonus.c
+BONUS = ft_lstnew.c	\
+	ft_lstadd_front.c	\
+	ft_lstsize.c		\
+	ft_lstlast.c		\
+	ft_lstadd_back.c	\
+	ft_lstdelone.c	\
+	ft_lstclear.c		\
+	ft_lstiter.c		\
+	ft_lstmap.c
 
 CC=clang
 
@@ -70,11 +70,9 @@ bonus: ${OBJS} ${BONUSOBJS}
 
 clean:
 	@${RM} ${OBJS} ${BONUSOBJS}
-	@echo "\033[0;32mObject files have been deleted\033[0m"
 
 fclean: clean
 	@${RM} ${NAME}
-	@echo "\033[0;32mArchive file ${NAME} has been deleted\033[0m"
 
 re: fclean all
 
@@ -83,4 +81,4 @@ so:
 	gcc -nostartfiles -shared -o libft.so $(OBJS)
 
 .PHONY:
-	clean all fclean re bonus title
+	clean all fclean re bonus title so

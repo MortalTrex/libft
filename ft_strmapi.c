@@ -1,18 +1,25 @@
 #include <stdlib.h>
 #include <string.h>
 
-char  *ft_strmapi(char const *s, char (*f)(unsigned int, char))
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-  char *res = strdup(s);
-  if (res == NULL)
-    return(NULL);
-  int i = 0;
-  while (res[i])
-  {
-    res[i] = (*f)(i, res[i]);
-    i++;
-  }
-  return (res);
+	int		i;
+	char	*res;
+
+	if (!s)
+		return (NULL);
+	if (!f)
+		return (NULL);
+	res = strdup(s);
+	if (res == NULL)
+		return (NULL);
+	i = 0;
+	while (res[i])
+	{
+		res[i] = (*f)(i, res[i]);
+		i++;
+	}
+	return (res);
 }
 
 /*

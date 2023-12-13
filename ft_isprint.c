@@ -2,9 +2,8 @@
 
 bool	ft_isprint(int c)
 {
-	if (c < ' ' ||  c > '~')
-			return (false);
-		
+	if (c < ' ' || c > '~')
+		return (false);
 	return (true);
 }
 

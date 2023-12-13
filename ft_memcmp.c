@@ -1,28 +1,28 @@
 #include <string.h>
 
-int ft_memcmp(const void *s1, const void *s2, size_t n)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-  unsigned char *str;
-  unsigned char *str1;
-  unsigned int len;
-  unsigned int i;
-  int res;
-  
-  str = (unsigned char *)s1;
-  str1 = (unsigned char *)s2;
-  len = n;
-  i = 0;
-  res = 0;
-  while (i < len)
-  {
-    if (str[i] - str1[i] != 0)
-    {
-      res =  str[i] - str1[i];
-      return (res);
-    }
-    i++;
-  }
-  return (res);
+	unsigned char	*str;
+	unsigned char	*str1;
+	unsigned int	len;
+	unsigned int	i;
+	unsigned int	res;
+
+	str = (unsigned char *)s1;
+	str1 = (unsigned char *)s2;
+	len = n;
+	i = 0;
+	res = 0;
+	while (i < len)
+	{
+		if (str[i] - str1[i] != 0)
+		{
+			res = str[i] - str1[i];
+			return (res);
+		}
+		i++;
+	}
+	return (res);
 }
 
 /*

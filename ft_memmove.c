@@ -1,26 +1,30 @@
 #include <string.h>
 
-void *ft_memmove(void *dest, const void *src, size_t n)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-  unsigned char * destres = (unsigned char *)dest;
-  unsigned char * srcres = (unsigned char *)src;
-  unsigned int i;
+	unsigned char	*destres;
+	unsigned char	*srcres;
+	unsigned int	i;
 
-  i = 0;
-  if (dest > src)
-  {
-    while (n > 0)
-    {
-      n--;
-      destres[n] = srcres[n];
-    }
-  }
-  while (i < n)
-  {
-    destres[i] = srcres[i];
-    i++;
-  }
-  return(destres);
+	destres = (unsigned char *)dest;
+	srcres = (unsigned char *)src;
+	i = 0;
+	if (!dest && !src && n)
+		return (NULL);
+	if (dest > src)
+	{
+		while (n > 0)
+		{
+			n--;
+			destres[n] = srcres[n];
+		}
+	}
+	while (i < n)
+	{
+		destres[i] = srcres[i];
+		i++;
+	}
+	return (destres);
 }
 
 /*

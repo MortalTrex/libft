@@ -1,16 +1,17 @@
 #include <strings.h>
 
-void  ft_bzero(void *str, size_t n)
+void	ft_bzero(void *str, size_t n)
 {
-  unsigned int i;
+	unsigned int	i;
+	unsigned char	*chaine;
 
-  i = 0;
-  unsigned char *chaine = str;
-  while (i < n)
-  {
-    chaine[i] = 0;
-    i++;
-  }
+	i = 0;
+	chaine = str;
+	while (i < n)
+	{
+		chaine[i] = 0;
+		i++;
+	}
 }
 
 /*
